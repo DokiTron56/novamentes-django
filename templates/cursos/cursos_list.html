@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Cursos | NovaMentes{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/content.css' %}?v=1">
+{% endblock %}
+
+{% block content %}
+<section class="content-section">
+  <div class="container">
+
+    <div class="content-head">
+      <div>
+        <h1 class="content-title">Cursos</h1>
+        <p class="content-subtitle">Explora nuestra oferta educativa y elige el curso ideal para potenciar tus habilidades.</p>
+      </div>
+      <span class="content-chip">Formación NovaMentes</span>
+    </div>
+
+    {% if cursos %}
+      <div class="cards-grid">
+        {% for c in cursos %}
+          <article class="nm-card">
+            <div class="nm-card__media">
+              <span class="nm-card__badge">Curso</span>
+
+              {% if c.imagen %}
+                <img src="{{ c.imagen.url }}" alt="{{ c.titulo }}">
+              {% else %}
+                <img src="{% static 'img/placeholder-curso.jpg' %}" alt="Curso">
+              {% endif %}
+            </div>
+
+            <div class="nm-card__body">
+              <h3 class="nm-card__title">
+                <a href="{% url 'curso_detalle' c.slug %}">{{ c.titulo }}</a>
+              </h3>
+
+              <p class="nm-card__text">{{ c.descripcion_corta }}</p>
+
+              <div class="nm-card__meta">
+                <span>{{ c.created_at|date:"d M Y" }}</span>
+                <a class="nm-card__cta" href="{% url 'curso_detalle' c.slug %}">
+                  Ver detalle →
+                </a>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-box">
+        Aún no hay cursos publicados. Vuelve pronto para ver novedades.
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

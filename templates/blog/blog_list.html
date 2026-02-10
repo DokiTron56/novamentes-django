@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Novedades | NovaMentes{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}?v=2">
+{% endblock %}
+
+{% block content %}
+<section class="blog-section">
+  <div class="container">
+
+    <div class="blog-head">
+      <div class="blog-head__left">
+        <h1 class="blog-title">Te invitamos a leer nuestros artículos</h1>
+        <span class="blog-dot"></span>
+        <div class="blog-line"></div>
+      </div>
+    </div>
+
+    {% if posts %}
+      <div class="blog-grid">
+
+        {% for p in posts %}
+          <article class="blog-card">
+
+            <div class="blog-card__media">
+              <span class="blog-card__tag">ARTÍCULO</span>
+
+              {% if p.imagen %}
+                <img src="{{ p.imagen.url }}" alt="{{ p.titulo }}">
+              {% else %}
+                <img src="{% static 'img/placeholder-blog.jpg' %}" alt="Artículo">
+              {% endif %}
+            </div>
+
+            <div class="blog-card__body">
+
+              <h3 class="blog-card__title">
+                <a href="{% url 'blog_detalle' p.slug %}">{{ p.titulo }}</a>
+              </h3>
+
+              <div class="blog-meta">
+                <span class="blog-meta__item">
+                  <img class="blog-meta__icon" src="{% static 'img/icons/user.png' %}" alt="">
+                  By novamentes
+                </span>
+
+                <span class="blog-meta__item">
+                  <img class="blog-meta__icon" src="{% static 'img/icons/calendar.png' %}" alt="">
+                  {{ p.created_at|date:"d M, Y" }}
+                </span>
+
+                <span class="blog-meta__item">
+                  <img class="blog-meta__icon" src="{% static 'img/icons/folder.png' %}" alt="">
+                  Artículos
+                </span>
+              </div>
+
+              <p class="blog-card__text">{{ p.resumen }}</p>
+
+              <div class="blog-card__footer">
+                <a class="blog-btn" href="{% url 'blog_detalle' p.slug %}">
+                  Leer más →
+                </a>
+              </div>
+
+            </div>
+          </article>
+        {% endfor %}
+
+      </div>
+
+      <div class="blog-more">
+        <a class="btn-more" href="{% url 'blog' %}">Ver más</a>
+      </div>
+
+    {% else %}
+      <div class="empty-box">
+        Aún no hay publicaciones. Pronto verás novedades aquí.
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,377 @@
+/* =========================
+   LISTADOS (Cursos)
+========================= */
+
+.content-section{
+  padding: 46px 0 70px;
+  background: #fff;
+}
+
+.content-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.content-title{
+  margin: 0;
+  font-size: 44px;
+  letter-spacing: -.6px;
+  line-height: 1.05;
+}
+
+.content-subtitle{
+  margin: 8px 0 0;
+  color: rgba(0,0,0,.65);
+  max-width: 640px;
+  line-height: 1.55;
+}
+
+.content-chip{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(125, 42, 128, .06); /* morado suave */
+  color: #7d2a80;
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* GRID */
+.cards-grid{
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 22px;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .cards-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CARD */
+.nm-card{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.nm-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 26px 70px rgba(0,0,0,.10);
+  border-color: rgba(125, 42, 128, .25);
+}
+
+.nm-card__media{
+  position: relative;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, rgba(125, 42, 128, .14), rgba(30, 165, 165, .14));
+}
+
+.nm-card__media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+.nm-card__badge{
+  position:absolute;
+  left: 14px;
+  top: 14px;
+  background: rgba(125, 42, 128, .92);
+  color: #fff;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .2px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+}
+
+.nm-card__body{
+  padding: 16px 16px 18px;
+}
+
+.nm-card__title{
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.nm-card__title a{
+  color: #111;
+  text-decoration: none;
+}
+
+.nm-card__title a:hover{
+  color: #7d2a80;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.nm-card__text{
+  margin: 0;
+  color: rgba(0,0,0,.70);
+  line-height: 1.55;
+}
+
+.nm-card__meta{
+  margin-top: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,.55);
+}
+
+.nm-card__cta{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  color: #7d2a80;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.nm-card__cta:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* DETAIL */
+.detail-wrap{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.detail-back{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  text-decoration:none;
+  color:#7d2a80;
+  font-weight: 800;
+}
+
+.detail-back:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.detail-title{
+  margin: 14px 0 10px;
+  font-size: 44px;
+  letter-spacing: -.6px;
+  line-height: 1.06;
+}
+
+.detail-lead{
+  margin: 0 0 18px;
+  color: rgba(0,0,0,.70);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.detail-media{
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 18px 50px rgba(0,0,0,.08);
+  background: #f2f4f7;
+}
+
+.detail-media img{
+  width: 100%;
+  height: auto;
+  display:block;
+}
+
+.detail-content{
+  margin-top: 18px;
+  line-height: 1.8;
+  color: rgba(0,0,0,.85);
+}
+
+/* Empty state */
+.empty-box{
+  margin-top: 20px;
+  border: 1px dashed rgba(0,0,0,.18);
+  border-radius: 18px;
+  padding: 18px;
+  background: rgba(125, 42, 128, .05);
+  color: rgba(0,0,0,.72);
+}
+
+/* =========================
+   ANIMACIONES (PRO)
+========================= */
+
+/* 1) Keyframes base */
+@keyframes nm-fade-up{
+  from{ opacity: 0; transform: translateY(14px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nm-fade-in{
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+
+@keyframes nm-pop{
+  from{ opacity: 0; transform: scale(.98); }
+  to{ opacity: 1; transform: scale(1); }
+}
+
+/* 2) Entrada del header (título, subtítulo, chip) */
+.content-head{
+  animation: nm-fade-up .55s ease both;
+}
+
+.content-title{
+  animation: nm-fade-up .55s ease both;
+  animation-delay: .02s;
+}
+
+.content-subtitle{
+  animation: nm-fade-up .55s ease both;
+  animation-delay: .08s;
+}
+
+.content-chip{
+  animation: nm-pop .55s ease both;
+  animation-delay: .12s;
+}
+
+/* 3) Grid: aparición general */
+.cards-grid{
+  animation: nm-fade-in .35s ease both;
+}
+
+/* 4) Cards: fade-up + stagger (sin JS) */
+.nm-card{
+  animation: nm-fade-up .55s ease both;
+  will-change: transform, opacity;
+}
+
+/* Stagger automático */
+.cards-grid .nm-card:nth-child(1){ animation-delay: .06s; }
+.cards-grid .nm-card:nth-child(2){ animation-delay: .12s; }
+.cards-grid .nm-card:nth-child(3){ animation-delay: .18s; }
+.cards-grid .nm-card:nth-child(4){ animation-delay: .24s; }
+.cards-grid .nm-card:nth-child(5){ animation-delay: .30s; }
+.cards-grid .nm-card:nth-child(6){ animation-delay: .36s; }
+.cards-grid .nm-card:nth-child(7){ animation-delay: .42s; }
+.cards-grid .nm-card:nth-child(8){ animation-delay: .48s; }
+.cards-grid .nm-card:nth-child(9){ animation-delay: .54s; }
+.cards-grid .nm-card:nth-child(10){ animation-delay: .60s; }
+
+/* 5) Hover mejorado: lift + sombra + brillo */
+.nm-card{
+  position: relative;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.nm-card::after{
+  content:"";
+  position:absolute;
+  inset: 0;
+  pointer-events:none;
+  opacity: 0;
+  transition: opacity .22s ease;
+  background:
+    radial-gradient(600px 220px at 18% 0%, rgba(125,42,128,.12), transparent 60%),
+    radial-gradient(600px 220px at 85% 10%, rgba(30,165,165,.10), transparent 62%);
+}
+
+.nm-card:hover::after{
+  opacity: 1;
+}
+
+.nm-card:hover{
+  transform: translateY(-7px);
+}
+
+/* 6) Imagen con micro-zoom al hover */
+.nm-card__media img{
+  transform: scale(1);
+  transition: transform .45s ease;
+}
+
+.nm-card:hover .nm-card__media img{
+  transform: scale(1.03);
+}
+
+/* 7) Badge: pequeño “pop” al hover */
+.nm-card__badge{
+  transition: transform .22s ease, filter .22s ease;
+}
+
+.nm-card:hover .nm-card__badge{
+  transform: translateY(-1px) scale(1.03);
+  filter: drop-shadow(0 10px 16px rgba(0,0,0,.18));
+}
+
+/* 8) CTA: flecha “desliza” suave */
+.nm-card__cta{
+  transition: transform .18s ease;
+}
+
+.nm-card:hover .nm-card__cta{
+  transform: translateX(2px);
+}
+
+/* 9) Detail page: animaciones suaves */
+.detail-wrap{
+  animation: nm-fade-up .55s ease both;
+}
+
+.detail-title{
+  animation: nm-fade-up .55s ease both;
+  animation-delay: .06s;
+}
+
+.detail-lead{
+  animation: nm-fade-up .55s ease both;
+  animation-delay: .12s;
+}
+
+.detail-media{
+  animation: nm-pop .55s ease both;
+  animation-delay: .18s;
+}
+
+.detail-content{
+  animation: nm-fade-up .55s ease both;
+  animation-delay: .24s;
+}
+
+/* 10) Empty state */
+.empty-box{
+  animation: nm-fade-up .55s ease both;
+}
+
+/* 11) Accesibilidad: respeta "reduce motion" */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+

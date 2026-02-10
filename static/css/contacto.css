@@ -1,0 +1,563 @@
+/* =========================
+   CONTACTO (PRO) - NUEVO
+   Compatible con tu HTML nuevo (contact-btn / contact-link)
+   Sin conflictos con base.css (NO redefine .btn, .link, whatsapp)
+========================= */
+
+:root{
+  --nm-teal: #1aa7a8;
+  --nm-deep: #167c9a;
+  --nm-purple: #5a1b6b;
+
+  --nm-ink: #0f172a;
+  --nm-muted: rgba(15, 23, 42, .68);
+
+  --card: #ffffff;
+  --line: rgba(15, 23, 42, .10);
+
+  --shadow-soft: 0 14px 34px rgba(15, 23, 42, .10);
+  --r-xl: 22px;
+}
+
+/* =========================
+   HERO – CLEAN (SIN IMAGEN)
+========================= */
+
+.contact-hero--clean{
+  position: relative;
+  padding: 96px 0 84px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(900px 420px at 85% 10%, rgba(255,255,255,.12), transparent 62%),
+    linear-gradient(135deg, #1aa7a8 0%, #167c9a 55%, #5a1b6b 120%);
+}
+
+/* brillo suave inferior */
+.contact-hero--clean::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.22));
+  pointer-events:none;
+}
+
+/* overlay (sutil) */
+.contact-hero__overlay{
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,.03);
+  backdrop-filter: blur(1px);
+}
+
+.contact-hero__content{
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: left;
+}
+
+.contact-hero__brand{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.contact-hero__logo{
+  width: 46px;
+  height: auto;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
+}
+
+.contact-hero__tag{
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .9;
+}
+
+.contact-hero__title{
+  margin: 0 0 14px;
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.contact-hero__subtitle{
+  margin: 0;
+  max-width: 640px;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: .95;
+}
+
+@media (max-width: 768px){
+  .contact-hero--clean{ padding: 72px 0 64px; }
+}
+
+/* =========================
+   SECTION / LAYOUT
+========================= */
+
+.contact-section{
+  padding: 60px 0 86px;
+  background:
+    radial-gradient(1000px 560px at 85% 10%, rgba(90,27,107,.08), transparent 60%),
+    radial-gradient(900px 520px at 10% 20%, rgba(26,167,168,.08), transparent 62%),
+    #fff;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 28px;
+  align-items:start;
+}
+
+@media (max-width: 980px){
+  .contact-grid{ grid-template-columns: 1fr; }
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.contact-card{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-soft);
+  padding: 26px 26px;
+}
+
+.contact-card__title{
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--nm-ink);
+}
+
+.contact-card__text{
+  margin: 0 0 18px;
+  color: var(--nm-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* INFO card accent */
+.contact-card--info{
+  position: relative;
+  overflow:hidden;
+}
+
+.contact-card--info::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(700px 380px at 10% 0%, rgba(26,167,168,.14), transparent 60%),
+    radial-gradient(700px 380px at 110% 30%, rgba(90,27,107,.10), transparent 62%);
+  pointer-events:none;
+}
+
+.contact-card--info > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   LIST / INFO ITEMS
+========================= */
+.contact-list{
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+  margin: 16px 0 18px;
+}
+
+.contact-item{
+  display:flex;
+  gap: 12px;
+  padding: 12px 12px;
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 16px;
+  background: rgba(255,255,255,.72);
+}
+
+.contact-item__icon{
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display:grid;
+  place-items:center;
+  background: linear-gradient(135deg, rgba(26,167,168,.14), rgba(22,124,154,.14));
+}
+
+.contact-item__label{
+  display:block;
+  font-size: 12px;
+  color: rgba(15,23,42,.62);
+  margin-bottom: 1px;
+  font-weight: 700;
+}
+
+.contact-item__value{
+  display:block;
+  font-size: 14px;
+  color: var(--nm-ink);
+  font-weight: 800;
+}
+
+/* actions */
+.contact-actions{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.contact-note{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(26,167,168,.08);
+  color: rgba(15,23,42,.80);
+  font-size: 13px;
+  border: 1px solid rgba(26,167,168,.16);
+}
+
+/* =========================
+   BOTONES CONTACTO – FIX BORDES
+========================= */
+
+.contact-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 26px;
+
+  border-radius: 999px !important; /* 🔥 esto los hace pill */
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1;
+
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: 
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease,
+    color .18s ease;
+}
+
+/* BOTÓN PRINCIPAL */
+.contact-btn--primary{
+  background: linear-gradient(135deg, #8b2d64, #5a1b6b);
+  color: #fff;
+  box-shadow: 0 18px 36px rgba(139,45,100,.35);
+}
+
+.contact-btn--primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 24px 48px rgba(139,45,100,.45);
+}
+
+/* BOTÓN SECUNDARIO */
+.contact-btn--ghost{
+  background: #fff;
+  color: #8b2d64;
+  border: 2px solid #8b2d64;
+}
+
+.contact-btn--ghost:hover{
+  background: #8b2d64;
+  color: #fff;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.contact-form .form-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 560px){
+  .contact-form .form-row{ grid-template-columns: 1fr; }
+}
+
+.field{
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.field label{
+  display:block;
+  margin: 0 0 7px;
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(15,23,42,.78);
+}
+
+.field input,
+.field textarea{
+  width: 100%;
+  border: 1px solid rgba(15,23,42,.12);
+  border-radius: 16px;
+  padding: 12px 14px;
+  font-size: 14px;
+  background: #fff;
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.field textarea{
+  resize: vertical;
+  min-height: 140px;
+}
+
+.field input:focus,
+.field textarea:focus{
+  border-color: rgba(26,167,168,.55);
+  box-shadow: 0 0 0 5px rgba(26,167,168,.14);
+}
+
+.field-hint{
+  display:block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(15,23,42,.55);
+}
+
+.form-footer{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+@media (max-width: 560px){
+  .form-footer{
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.form-privacy{
+  font-size: 12px;
+  color: rgba(15,23,42,.62);
+}
+
+/* =========================
+   ALERTS (OK / ERROR)
+========================= */
+
+.form-alert{
+  display:none;
+  padding: 12px 14px;
+  border-radius: 16px;
+  margin: 10px 0 14px;
+  font-size: 13px;
+  font-weight: 800;
+  border: 1px solid transparent;
+}
+
+.form-alert--ok{
+  background: rgba(26,167,168,.10);
+  border-color: rgba(26,167,168,.22);
+  color: rgba(15,23,42,.85);
+}
+
+.form-alert--err{
+  background: rgba(220,38,38,.10);
+  border-color: rgba(220,38,38,.22);
+  color: rgba(15,23,42,.85);
+}
+
+.form-alert.is-show{ display:block; }
+
+/* Validation states */
+.field.is-valid input,
+.field.is-valid textarea{
+  border-color: rgba(26,167,168,.55);
+  box-shadow: 0 0 0 5px rgba(26,167,168,.12);
+}
+
+.field.is-invalid input,
+.field.is-invalid textarea{
+  border-color: rgba(220,38,38,.55);
+  box-shadow: 0 0 0 5px rgba(220,38,38,.12);
+}
+
+.field.is-invalid .field-hint{
+  color: rgba(220,38,38,.72);
+  font-weight: 800;
+}
+
+/* =========================
+   MAPA
+========================= */
+
+.contact-map{
+  margin-top: 28px;
+  background: #fff;
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(15,23,42,.10);
+  overflow: hidden;
+}
+
+.contact-map__head{
+  padding: 18px 22px 0;
+}
+
+.contact-map__title{
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 900;
+  color: rgba(15,23,42,.90);
+}
+
+.contact-map__subtitle{
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: rgba(15,23,42,.62);
+}
+
+.contact-map__frame{
+  height: 360px;
+  border-top: 1px solid rgba(15,23,42,.08);
+}
+
+.contact-map__frame iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display:block;
+}
+
+/* =========================
+   REVEAL (solo si NO tienes global)
+========================= */
+
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================
+   FIX CONTACTO – CONSISTENCIA + REDES (LOCAL ICONS)
+   Pegar al final del archivo
+========================= */
+
+/* Evita que los pseudo overlays se coman clicks (por si acaso) */
+.contact-card--info::before,
+.contact-hero--clean::after{
+  pointer-events: none;
+}
+
+/* Asegura orden correcto dentro de la card */
+.contact-card--info{
+  position: relative;
+  isolation: isolate; /* evita mezclas raras con overlays */
+}
+
+/* Mejora item: alinea icono y texto */
+.contact-item{
+  align-items: center;
+}
+
+.contact-item__icon{
+  flex: 0 0 34px;
+}
+
+/* Si algún dato se desborda (correo largo) */
+.contact-item__value{
+  word-break: break-word;
+}
+
+/* =========================
+   REDES SOCIALES (BOTONES CON IMG)
+========================= */
+
+.contact-socials{
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* Botón: consistente con tus radios y bordes */
+.social-btn{
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(15,23,42,.10);
+  box-shadow: 0 12px 26px rgba(15,23,42,.12);
+
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.social-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(15,23,42,.16);
+  background: rgba(255,255,255,.95);
+}
+
+/* Accesibilidad: foco visible con teclado */
+.social-btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 5px rgba(26,167,168,.18), 0 18px 34px rgba(15,23,42,.16);
+  border-color: rgba(26,167,168,.35);
+}
+
+/* Imagen dentro del botón: nítida y centrada */
+.social-btn img{
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Colores suaves por red (más coherentes con tu paleta) */
+.social-btn.whatsapp{ background: rgba(37,211,102,.10); }
+.social-btn.instagram{ background: rgba(225,48,108,.10); }
+.social-btn.tiktok{ background: rgba(0, 0, 0, 0.06); }
+.social-btn.linkedin{ background: rgba(0, 86, 247, 0.103);}
+
+
+/* Responsive */
+@media (max-width: 420px){
+  .social-btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+  }
+  .social-btn img{
+    width: 26px;
+    height: 26px;
+  }
+}

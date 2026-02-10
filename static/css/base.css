@@ -1,0 +1,323 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #111;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HEADER delgado */
+.site-header{
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-row{
+  min-height: 72px;          /* delgado */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* logo grande */
+.brand{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.brand-logo{
+  height: 80px;                 /* tamaño base */
+  width: auto;
+  transform: scale(1.6);        /* ⬅️ hace el logo grande */
+  transform-origin: left center;
+}
+
+@media (max-width: 980px){
+  .header-row{
+    min-height: 60px;
+  }
+
+  .brand-logo{
+    height: 48px;
+    transform: scale(1);   /* vuelve a tamaño normal */
+  }
+}
+
+
+/* menú centrado */
+.nav{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  align-items: center;
+}
+
+.nav-link{
+  text-decoration: none;
+  color: #222;
+  font-size: 18px;
+  padding: 10px 2px;
+  position: relative;
+  transition: color .2s ease;
+}
+
+/* hover */
+.nav-link:hover{
+  color: #8b2d64;
+}
+
+/* ✅ ACTIVO: funciona con clase y con aria-current */
+.nav-link.nav-active::after,
+.nav-link[aria-current="page"]::after{
+  content:"";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: #8b2d64;
+  border-radius: 999px;
+}
+
+/* botón aula virtual morado */
+.btn{
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn-pill{
+  padding: 14px 24px;
+  border-radius: 14px;
+}
+
+.btn-virtual{
+  background: #8b2d64;
+  color: #fff;
+  transition: transform .15s ease, opacity .15s ease;
+}
+
+.btn-virtual:hover{
+  opacity: .92;
+  transform: translateY(-1px);
+}
+
+
+/* Responsive básico */
+@media (max-width: 980px){
+  .header-row{ min-height: 90px; }
+  .brand-logo{ height: 54px; }
+  .nav{ display: none; } /* luego hacemos menú mobile */
+}
+
+/* =========================
+   FOOTER (LIMPIO Y SIMPLE)
+========================= */
+
+.site-footer{
+  background: #fff;
+  border-top: 1px solid #eee;
+  padding: 24px 0 0;
+  color: #111;
+}
+
+.footer-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 18px;
+}
+
+.footer-brand{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.footer-logo{
+  height: 54px;
+  width: auto;
+  display: block;
+}
+
+/* info */
+.footer-info{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+  flex-wrap: wrap;
+}
+
+.footer-item{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 170px;
+}
+
+.footer-label{
+  font-size: 12px;
+  color: #666;
+}
+
+.footer-link{
+  color: #222;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-link:hover{
+  color: #8b2d64;
+  text-decoration: underline;
+}
+
+.footer-text{
+  font-weight: 700;
+}
+
+/* redes */
+.footer-socials{
+  display: flex;
+  gap: 10px;
+}
+
+.social-pill{
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: #f3f3f6;
+  color: #222;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform .15s ease, background .15s ease, color .15s ease;
+}
+
+.social-pill:hover{
+  background: #8b2d64;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* bottom */
+.footer-bottom{
+  border-top: 1px solid #eee;
+  padding: 14px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+/* responsive */
+@media (max-width: 980px){
+  .footer-row{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-info{
+    justify-content: flex-start;
+    gap: 18px;
+  }
+
+  .footer-item{
+    min-width: auto;
+  }
+}
+
+/* =========================
+   ICONOS REDES SOCIALES
+========================= */
+
+.footer-socials img{
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+  pointer-events: none; /* click pasa al <a> */
+}
+
+/* mantiene el efecto pill */
+.social-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: #f3f3f6;
+  transition: transform .15s ease, background .15s ease;
+}
+
+.social-pill:hover{
+  background: #8b2d64;
+  transform: translateY(-1px);
+}
+.social-pill:hover img{
+  filter: none;
+  transform: scale(1.12);
+}
+
+/* =========================
+   BOTÓN FLOTANTE WHATSAPP
+========================= */
+
+.whatsapp-float{
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  box-shadow: 0 8px 22px rgba(0,0,0,.25);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.whatsapp-float img{
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+}
+
+.whatsapp-float:hover{
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(0,0,0,.32);
+}
+
+/* móvil: un poco más chico */
+@media (max-width: 520px){
+  .whatsapp-float{
+    width: 46px;
+    height: 46px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .whatsapp-float img{
+    width: 22px;
+    height: 22px;
+  }
+}

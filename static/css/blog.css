@@ -1,0 +1,352 @@
+/* =========================
+   BLOG / NOVEDADES (PRO)
+========================= */
+
+.blog-section{
+  padding: 52px 0 76px;
+  background: #fff;
+}
+
+/* Header tipo “Te invitamos a leer...” */
+.blog-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.blog-head__left{
+  display:flex;
+  align-items:baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.blog-title{
+  margin:0;
+  font-size: 34px;
+  letter-spacing: -.4px;
+  color:#166a7a; /* azul/turquesa elegante */
+  font-weight: 900;
+}
+
+.blog-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #7d2a80; /* morado */
+  transform: translateY(-4px);
+}
+
+.blog-line{
+  flex: 1;
+  height: 1px;
+  background: rgba(0,0,0,.10);
+  min-width: 120px;
+}
+
+/* Grid 3 columnas */
+.blog-grid{
+  display:grid;
+  gap: 22px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1020px){
+  .blog-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px){
+  .blog-grid{ grid-template-columns: 1fr; }
+}
+
+/* Card */
+.blog-card{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 18px;
+  overflow:hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  display:flex;
+  flex-direction: column;
+  min-height: 520px;
+}
+
+.blog-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 26px 70px rgba(0,0,0,.10);
+  border-color: rgba(125, 42, 128, .25);
+}
+
+/* Imagen */
+.blog-card__media{
+  position:relative;
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg, rgba(125, 42, 128, .14), rgba(30, 165, 165, .14));
+}
+
+.blog-card__media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* Tag arriba como “ARTÍCULO” */
+.blog-card__tag{
+  position:absolute;
+  left: 14px;
+  top: 14px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .2px;
+  color:#fff;
+  background: rgba(125, 42, 128, .92);
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+}
+
+/* Contenido */
+.blog-card__body{
+  padding: 16px 16px 18px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.blog-card__title{
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+.blog-card__title a{
+  color:#111;
+  text-decoration:none;
+}
+
+.blog-card__title a:hover{
+  color:#7d2a80;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Meta */
+.blog-meta{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items:center;
+  color: rgba(0,0,0,.62);
+  font-size: 13px;
+}
+
+.blog-meta__item{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+}
+
+.blog-meta__icon{
+  width: 16px;
+  height: 16px;
+  opacity: .8;
+}
+
+/* Resumen */
+.blog-card__text{
+  margin: 0;
+  color: rgba(0,0,0,.72);
+  line-height: 1.6;
+  font-size: 14.5px;
+}
+
+/* Footer botón */
+.blog-card__footer{
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.blog-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.14);
+  background: #fff;
+  color:#111;
+  font-weight: 800;
+  text-decoration:none;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  width: fit-content;
+}
+
+.blog-btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(125, 42, 128, .35);
+  background: rgba(125, 42, 128, .06);
+}
+
+/* Botón final “Ver más” centrado */
+.blog-more{
+  display:flex;
+  justify-content:center;
+  margin-top: 26px;
+}
+
+.blog-more .btn-more{
+  background: #7d2a80;
+  color:#fff;
+  border:none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 900;
+  text-decoration:none;
+  box-shadow: 0 18px 50px rgba(125, 42, 128, .20);
+  transition: transform .18s ease;
+}
+
+.blog-more .btn-more:hover{
+  transform: translateY(-2px);
+}
+
+/* =========================
+   BLOG ANIMACIONES (PRO)
+========================= */
+
+/* Keyframes (si ya los tienes arriba, puedes omitirlos) */
+@keyframes nm-fade-up{
+  from{ opacity: 0; transform: translateY(14px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+@keyframes nm-fade-in{
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+@keyframes nm-pop{
+  from{ opacity: 0; transform: scale(.98); }
+  to{ opacity: 1; transform: scale(1); }
+}
+
+/* 1) Entrada del encabezado */
+.blog-head{
+  animation: nm-fade-up .55s ease both;
+}
+
+.blog-title{
+  animation: nm-fade-up .55s ease both;
+  animation-delay: .04s;
+}
+
+.blog-dot{
+  animation: nm-pop .55s ease both;
+  animation-delay: .10s;
+}
+
+.blog-line{
+  animation: nm-fade-in .65s ease both;
+  animation-delay: .14s;
+  transform-origin: left;
+}
+
+/* 2) Grid: aparición general */
+.blog-grid{
+  animation: nm-fade-in .35s ease both;
+}
+
+/* 3) Cards: fade-up + stagger */
+.blog-card{
+  animation: nm-fade-up .55s ease both;
+  will-change: transform, opacity;
+}
+
+/* Stagger automático */
+.blog-grid .blog-card:nth-child(1){ animation-delay: .06s; }
+.blog-grid .blog-card:nth-child(2){ animation-delay: .12s; }
+.blog-grid .blog-card:nth-child(3){ animation-delay: .18s; }
+.blog-grid .blog-card:nth-child(4){ animation-delay: .24s; }
+.blog-grid .blog-card:nth-child(5){ animation-delay: .30s; }
+.blog-grid .blog-card:nth-child(6){ animation-delay: .36s; }
+.blog-grid .blog-card:nth-child(7){ animation-delay: .42s; }
+.blog-grid .blog-card:nth-child(8){ animation-delay: .48s; }
+.blog-grid .blog-card:nth-child(9){ animation-delay: .54s; }
+.blog-grid .blog-card:nth-child(10){ animation-delay: .60s; }
+
+/* 4) Hover premium: lift + brillo */
+.blog-card{
+  position: relative;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.blog-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:0;
+  transition: opacity .22s ease;
+  background:
+    radial-gradient(620px 220px at 18% 0%, rgba(125,42,128,.12), transparent 60%),
+    radial-gradient(620px 220px at 85% 10%, rgba(22,106,122,.10), transparent 62%);
+}
+
+.blog-card:hover::after{
+  opacity: 1;
+}
+
+.blog-card:hover{
+  transform: translateY(-7px);
+}
+
+/* 5) Imagen con micro-zoom en hover */
+.blog-card__media img{
+  transform: scale(1);
+  transition: transform .45s ease;
+}
+
+.blog-card:hover .blog-card__media img{
+  transform: scale(1.04);
+}
+
+/* 6) Tag con “pop” suave */
+.blog-card__tag{
+  transition: transform .22s ease, filter .22s ease;
+}
+
+.blog-card:hover .blog-card__tag{
+  transform: translateY(-1px) scale(1.03);
+  filter: drop-shadow(0 10px 16px rgba(0,0,0,.18));
+}
+
+/* 7) Botón “Leer más” micro-movimiento */
+.blog-btn{
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.blog-card:hover .blog-btn{
+  transform: translateY(-1px);
+}
+
+/* 8) Botón “Ver más” aparece suave */
+.blog-more{
+  animation: nm-fade-up .55s ease both;
+  animation-delay: .25s;
+}
+
+/* 9) Accesibilidad: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .blog-head, .blog-title, .blog-dot, .blog-line,
+  .blog-grid, .blog-card, .blog-more{
+    animation: none !important;
+  }
+  .blog-card, .blog-card__media img, .blog-card__tag, .blog-btn, .btn-more{
+    transition: none !important;
+  }
+}
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cursos | Novamentes{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/cursos.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Cursos</h1>
+    <p>Lista de cursos aquí.</p>
+  </div>
+</section>
+{% endblock %}

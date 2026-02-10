@@ -1,0 +1,335 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Inicio | Novamentes{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+{% endblock %}
+
+
+{% block content %}
+
+<!-- =========================
+     HERO
+========================= -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <div class="container hero-grid">
+
+    <!-- ✅ TARJETA NARANJA = CARRUSEL -->
+    <div class="hero-left swiper heroCardSwiper">
+
+      <div class="swiper-wrapper">
+        {% for s in hero_slides %}
+          <div class="swiper-slide">
+
+              {% if s.slide_type == "IMAGE_ONLY" %}
+                <div class="hero-card-inner hero-slide-imageonly">
+                  {% if s.image %}
+                    <img src="{{ s.image.url }}" alt="Hero slide">
+                  {% endif %}
+                </div>
+              {% else %}
+              <!-- ✅ Imagen (logo) + texto -->
+              <div class="hero-card-inner">
+                <div class="hero-left-logo">
+                  {% if s.logo %}
+                    <img class="hero-brand" src="{{ s.logo.url }}" alt="Logo slide">
+                  {% else %}
+                    <img class="hero-brand" src="{% static 'img/logos/BAJADA NM.png' %}" alt="NovaMentes">
+                  {% endif %}
+                </div>
+
+                <div class="hero-left-content">
+                  {% if s.title %}<h1>{{ s.title|linebreaksbr }}</h1>{% endif %}
+                  {% if s.subtitle %}<p>{{ s.subtitle }}</p>{% endif %}
+
+                  {% if s.cta_url and s.cta_text %}
+                    <a class="hero-cta" href="{{ s.cta_url }}" target="_blank" rel="noopener">
+                      {{ s.cta_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Controles -->
+      <div class="hero-card-controls">
+        <div class="swiper-button-prev" aria-label="Anterior"></div>
+        <div class="swiper-button-next" aria-label="Siguiente"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+
+  // ✅ TEST: si ves esto en consola, este home.html SI se está cargando
+  console.log("✅ HOME cargado: HERO carrusel activo");
+
+  // PARALLAX (tu código)
+  const hero = document.querySelector(".hero");
+  const bg = document.querySelector(".hero-bg");
+
+  if (hero && bg && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const strength = 680;
+
+    const update = () => {
+      const rect = hero.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (rect.bottom <= 0 || rect.top >= vh) return;
+
+      const progress = (vh - rect.top) / (vh + rect.height);
+      const y = Math.pow(progress - 0.5, 1.25) * strength;
+      bg.style.transform = `translate3d(0, ${y}px, 0) scale(1.22)`;
+    };
+
+    update();
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => { update(); ticking = false; });
+      }
+    }, { passive: true });
+
+    window.addEventListener("resize", update);
+  }
+
+  // ✅ TEST: si Swiper no existe, el problema es que no está cargando el CDN
+  console.log("Swiper:", typeof Swiper);
+
+  // CARRUSEL TARJETA
+  if (typeof Swiper === "undefined") return;
+
+  new Swiper(".heroCardSwiper", {
+    loop: true,
+    speed: 700,
+    autoplay: { delay: 4500, disableOnInteraction: false },
+    pagination: { el: ".heroCardSwiper .swiper-pagination", clickable: true },
+    navigation: {
+      nextEl: ".heroCardSwiper .swiper-button-next",
+      prevEl: ".heroCardSwiper .swiper-button-prev"
+    }
+  });
+
+});
+</script>
+
+
+
+<!-- =========================
+     ALIANZAS 2025
+========================= -->
+<section class="partners section-reveal">
+  <div class="container partners-grid">
+
+    <div class="partners-title">
+      <h2>Alianzas<br></h2>
+    </div>
+
+    <div class="partners-logos">
+    <span class="logo-box">
+      <img src="{% static 'img/alianzas/janome.png' %}" class="partner-logo" alt="Janome">
+    </span>
+    <span class="logo-box">
+      <img src="{% static 'img/alianzas/stgo.png' %}" class="partner-logo" alt="STGO">
+    </span>
+    <span class="logo-box">
+      <img src="{% static 'img/alianzas/sence.png' %}" class="partner-logo" alt="SENCE">
+    </span>
+    <span class="logo-box">
+      <img src="{% static 'img/alianzas/eolic.png' %}" class="partner-logo" alt="Eolic">
+    </span>
+    <span class="logo-box logo-box--audaces">
+      <img src="{% static 'img/alianzas/audaces.png' %}" class="partner-logo" alt="Audaces">
+    </span>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     VALORES
+========================= -->
+<section class="values section-reveal">
+  <div class="container values-wrap">
+
+    <div class="values-left">
+      <h2>Nuestros<br>Valores</h2>
+    </div>
+
+    <div class="values-cards">
+
+      <article class="value-card">
+        <div class="value-ico">
+          <img src="{% static 'img/valores/unidad.png' %}" alt="Unidad">
+        </div>
+        <h3>Unidad</h3>
+      </article>
+
+      <article class="value-card">
+        <div class="value-ico">
+          <img src="{% static 'img/valores/especializacion.png' %}" alt="Especialización">
+        </div>
+        <h3>Especialización</h3>
+      </article>
+
+      <article class="value-card">
+        <div class="value-ico">
+          <img src="{% static 'img/valores/dinamismo.png' %}" alt="Dinamismo">
+        </div>
+        <h3>Dinamismo</h3>
+      </article>
+
+      <article class="value-card">
+        <div class="value-ico">
+          <img src="{% static 'img/valores/exelencia.png' %}" alt="Excelencia">
+        </div>
+        <h3>Excelencia</h3>
+      </article>  
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     OFERTA EDUCATIVA
+========================= -->
+<section id="oferta-educativa" class="offer section-reveal">
+  <div class="container offer-head">
+    <h2 class="offer-title">OFERTA EDUCATIVA</h2>
+
+    <!-- Botón que baja a los cursos -->
+    <a class="offer-btn" href="{% url 'cursos' %}">VER CURSOS DISPONIBLES</a>
+  </div>
+
+  <div class="container offer-grid" id="cursos">
+
+    <!-- CARD 1 -->
+    <article class="offer-card offer-card--magenta">
+      <a href="{% url 'cursos' %}" class="offer-link">
+        <div class="offer-media">
+          <img src="{% static 'img/cursos/corte-confeccion.jpg' %}" alt="Cursos de Corte y confección">
+        </div>
+        <div class="offer-band">
+          <h3>Cursos de Corte<br>y confección</h3>
+        </div>
+      </a>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="offer-card offer-card--blue">
+      <a href="{% url 'cursos' %}" class="offer-link">
+        <div class="offer-media">
+          <img src="{% static 'img/cursos/desarrollo-laboral.jpg' %}" alt="Programas de desarrollo laboral">
+        </div>
+        <div class="offer-band">
+          <h3>Programas de desarrollo<br>laboral</h3>
+        </div>
+      </a>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="offer-card offer-card--orange">
+      <a href="{% url 'cursos' %}" class="offer-link">
+        <div class="offer-media">
+          <img src="{% static 'img/cursos/emprendimiento.jpg' %}" alt="Programas de emprendimiento">
+        </div>
+        <div class="offer-band">
+          <h3>Programas de<br>emprendimiento</h3>
+        </div>
+      </a>
+    </article>
+
+  </div>
+</section>
+
+<section class="value-section">
+  <div class="value-container">
+
+    <!-- TEXTO -->
+    <div class="value-content">
+
+      <div class="value-item">
+        <div class="value-icon">
+          <img src="/static/img/icons/star.png" alt="Formación significativa">
+        </div>
+        <div class="value-text">
+          <h3>Formación Significativa</h3>
+          <p>
+            Enseñamos lo que transforma vidas. Contenido práctico, técnico y
+            socialmente útil, conectado con el mundo real y laboral.
+          </p>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-icon">
+          <img src="/static/img/icons/aprendizaje.png" alt="Formación significativa">
+        </div>
+        <div class="value-text">
+          <h3>Aprendizaje Activo</h3>
+          <p>
+            El saber se convierte en hacer. Proyectos, ejercicios y desafíos
+            aplicados desde la primera clase.
+          </p>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-icon">
+          <img src="/static/img/icons/profesional.png" alt="Formación significativa">
+        </div>
+        <div class="value-text">
+          <h3>Equipo Profesional Comprometido</h3>
+          <p>
+            Nuestro equipo está formado por profesionales con experiencia que
+            acompañan y guían tu proceso de aprendizaje.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- IMAGEN -->
+    <div class="value-image">
+      <img src="/static/img/formacion.jpg" alt="Metodología de aprendizaje">
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- =========================
+     ANIMACIÓN SCROLL
+========================= -->
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll(".section-reveal")
+    .forEach(el => observer.observe(el));
+</script>
+
+{% endblock %}
+

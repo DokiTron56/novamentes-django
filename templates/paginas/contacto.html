@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contacto.css' %}?v=4">
+{% endblock %}
+
+{% block content %}
+
+<!-- =========================
+     CONTACTO
+========================= -->
+
+<!-- HERO -->
+<section class="contact-hero contact-hero--clean">
+  <div class="contact-hero__overlay"></div>
+
+  <div class="container contact-hero__content reveal">
+    <div class="contact-hero__brand">
+      <span class="contact-hero__tag">OTEC • FORMACIÓN PROFESIONAL</span>
+    </div>
+
+    <h1 class="contact-hero__title">Contáctanos</h1>
+    <p class="contact-hero__subtitle">
+      Estamos aquí para ayudarte a dar el siguiente paso en tu desarrollo profesional.
+    </p>
+  </div>
+</section>
+
+<!-- CONTENIDO -->
+<section class="contact-section" id="contacto">
+  <div class="container">
+
+    <div class="contact-grid">
+
+<!-- INFO -->
+  <aside class="contact-card contact-card--info reveal">
+
+    <h2 class="contact-card__title">Nuestros datos de contacto</h2>
+
+    <p class="contact-card__text">
+      Aquí puedes encontrar nuestra información oficial y nuestros canales digitales
+      para contactarnos.
+    </p>
+
+    <!-- Datos -->
+    <div class="contact-list">
+
+    <div class="contact-item">
+      <img
+        class="contact-item__icon"
+        src="{% static 'img/icons/location.png' %}"
+        alt="Dirección">
+
+      <div class="contact-item__body">
+        <span class="contact-item__label">Dirección</span>
+        <span class="contact-item__value">
+          Paseo Matías Cousiño 82, 1007<br>
+          Santiago Centro
+        </span>
+      </div>
+    </div>
+
+
+      <div class="contact-item">
+        <img
+          class="contact-item__icon"
+          src="{% static 'img/icons/mail.png' %}"
+          alt="Correo electrónico">
+
+        <div class="contact-item__body">
+          <span class="contact-item__label">Correo electrónico</span>
+          <span class="contact-item__value">contacto@novamentes.cl</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Redes sociales -->
+    <div class="contact-socials">
+
+      <a href="https://wa.me/56987768377"
+        target="_blank" rel="noopener"
+        class="social-btn whatsapp"
+        aria-label="WhatsApp">
+        <img src="{% static 'img/redes/wsp.png' %}" alt="WhatsApp">
+      </a>
+
+      <a href="https://www.instagram.com/novamentescl"
+        target="_blank" rel="noopener"
+        class="social-btn instagram"
+        aria-label="Instagram">
+        <img src="{% static 'img/redes/ig.png' %}" alt="Instagram">
+      </a>
+
+      <a href="https://www.tiktok.com/@novamentes.ic"
+        target="_blank" rel="noopener"
+        class="social-btn tiktok"
+        aria-label="TikTok">
+        <img src="{% static 'img/redes/tt.png' %}" alt="TikTok">
+      </a>
+
+      <a href="https://cl.linkedin.com/company/nova-mentes?trk=public_post_follow-view-profile"
+        target="_blank" rel="noopener"
+        class="social-btn linkedin"
+        aria-label="linkedin">
+        <img src="{% static 'img/redes/lik.png' %}" alt="LinkedIn">
+      </a>
+
+    </div>
+
+    <div class="contact-note">
+      <strong>Horario de atención:</strong> Lunes a viernes • 10:00 a 14:00
+    </div>
+
+  </aside>
+
+      <!-- FORMULARIO -->
+      <div class="contact-card contact-card--form reveal">
+        <h2 class="contact-card__title">Envíanos un mensaje</h2>
+        <p class="contact-card__text">
+          Completa el formulario y nos pondremos en contacto contigo.
+        </p>
+
+        <!-- ✅ MENSAJES DESDE DJANGO (messages.success / messages.error) -->
+        {% if messages %}
+          {% for message in messages %}
+            <div class="form-alert {% if message.tags == 'success' %}form-alert--ok{% else %}form-alert--err{% endif %} is-show"
+                 aria-live="polite">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <form class="contact-form"
+              method="post"
+              action="{% url 'contacto' %}"
+              novalidate>
+          {% csrf_token %}
+
+          <div class="form-row">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text"
+                     placeholder="Tu nombre" required minlength="2">
+              <small class="field-hint">Ingresa al menos 2 caracteres.</small>
+            </div>
+
+            <div class="field">
+              <label for="apellido">Apellido</label>
+              <input id="apellido" name="apellido" type="text"
+                     placeholder="Tu apellido" required minlength="2">
+              <small class="field-hint">Ingresa al menos 2 caracteres.</small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email"
+                     placeholder="tucorreo@ejemplo.com" required>
+              <small class="field-hint">Usa un correo válido.</small>
+            </div>
+
+            <div class="field">
+              <label for="telefono">Teléfono (opcional)</label>
+              <input id="telefono" name="telefono" type="tel"
+                     placeholder="+56 9 ....">
+              <small class="field-hint">Si quieres, te contactamos por WhatsApp.</small>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="mensaje">Comentario o mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="6"
+                      placeholder="Cuéntanos qué necesitas…"
+                      required minlength="10"></textarea>
+            <small class="field-hint">Mínimo 10 caracteres.</small>
+          </div>
+
+          <div class="form-footer">
+            <button class="contact-btn contact-btn--primary" type="submit">
+              Enviar mensaje
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- MAPA -->
+    <div class="contact-map reveal">
+      <div class="contact-map__head">
+        <h3 class="contact-map__title">¿Dónde estamos?</h3>
+        <p class="contact-map__subtitle">Agenda una reunión. Te esperamos.</p>
+      </div>
+
+      <div class="contact-map__frame">
+        <iframe
+          title="Mapa Novamentes"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Paseo%20Mat%C3%ADas%20Cousi%C3%B1o%2082%20Santiago&output=embed">
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/contacto.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Novedades | Novamentes{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Novedades</h1>
+    <p>Lista de artículos aquí.</p>
+  </div>
+</section>
+{% endblock %}

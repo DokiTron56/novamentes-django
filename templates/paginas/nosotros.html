@@ -1,0 +1,515 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/nosotros-header.css' %}?v=2">
+<link rel="stylesheet" href="{% static 'css/nosotros.css' %}?v=2">
+<link rel="stylesheet" href="{% static 'css/team.css' %}?v=2">
+<link rel="stylesheet" href="{% static 'css/testimonios.css' %}?v=2">
+{% endblock %}
+
+
+{% block content %}
+
+<!-- =========================
+     QUIÉNES SOMOS 
+========================= -->
+<section class="nm-about-header">
+  <div class="container nm-about-grid">
+
+    <!-- IZQUIERDA: TARJETA + FOTO -->
+    <div class="nm-about-frame">
+      <div class="nm-about-topbar">
+        <img
+          src="{% static 'img/logos/LARGO NM.png' %}"
+          class="nm-about-logo"
+          alt="NovaMentes"
+        >
+      </div>
+
+      <div class="nm-about-photo-box">
+        <img
+          src="{% static 'img/headersobre.png' %}"
+          class="nm-about-photo"
+          alt="Equipo NovaMentes"
+        >
+        <span class="nm-about-diagonal" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <!-- DERECHA: TEXTO -->
+    <div class="nm-about-info">
+      <span class="nm-about-dots" aria-hidden="true"></span>
+
+      <h1 class="nm-about-title">Sobre nosotros</h1>
+
+      <div class="nm-about-subtitle">
+        Nova Mentes es un organismo técnico de capacitación certificado
+      </div>
+
+      <p class="nm-about-text">
+        Especializado en el diseño y ejecución de programas formativos con impacto social, orientados al desarrollo de personas,
+        emprendimientos y organizaciones publicas o privadas.
+      </p>
+
+      <p class="nm-about-text nm-about-strong">
+        Trabajamos desde una mirada integral, que combina:
+      </p>
+
+      <ul class="nm-about-list">
+        <li>Desarrollo humano</li>
+        <li>Formación técnica aplicada</li>
+        <li>Emprendimiento y empleabilidad</li>
+        <li>Innovación social y vinculación territorial</li>
+      </ul>
+
+      <p class="nm-about-text">
+        Creemos en la capacitación como una herramienta estratégica para fortalecer la productividad, la empleabilidad y la autonomía económica.
+        Por ello, desarrollamos programas que integran cambio de mentalidad, competencias técnicas e impacto con un enfoque de género e inclusión.
+      </p>
+
+      <p class="nm-about-text">
+        Colaboramos con empresas, municipalidades y organismos públicos, implementando procesos formativos prácticos, certificados y adaptables a distintos contextos.
+      </p>
+
+      <div class="nm-about-checks">
+        ✔ Certificación NCh 2728:2015<br>
+        ✔ Sello Mujer Chile Compra<br>
+        ✔ Experiencia público–privada<br>
+        ✔ Modalidad presencial y e-learning
+      </div>
+
+      <div class="nm-about-logos">
+        <img src="{% static 'img/sellos/1.png' %}" alt="Sello Mujer Chile Compra">
+        <img src="{% static 'img/sellos/2.png' %}" alt="Sello NovaMentes / NCh 2728:2015">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- =========================
+     MISIÓN + VISIÓN (CARDS PRO)
+========================= -->
+<section class="mv">
+  <div class="container">
+
+    <!-- ✅ le faltaba reveal -->
+    <div class="mv-head reveal">
+      <p class="mv-kicker">INSTITUTO DE CAPACITACIÓN</p>
+      <h2 class="mv-title">Misión y visión</h2>
+      <p class="mv-sub">
+        Impulsamos habilidades personales y laborales para abrir oportunidades reales.
+      </p>
+    </div>
+
+    <div class="mv-grid">
+
+      <!-- ✅ le faltaba reveal -->
+      <article class="mv-card reveal">
+        <div class="mv-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3l8 4v6c0 5-3.5 8-8 8s-8-3-8-8V7l8-4Z" stroke="currentColor" stroke-width="1.8" />
+            <path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <h3 class="mv-card-title">Nuestra misión</h3>
+        <p class="mv-card-text">
+          Impulsar el desarrollo de competencias y el bienestar personal y laboral,
+          entregando herramientas reales para aprender, crecer y liderar.
+        </p>
+
+        <div class="mv-quote">
+          <span class="mv-quote-bar"></span>
+          <p>Aprender haciendo, con acompañamiento cercano y resultados visibles.</p>
+        </div>
+      </article>
+
+      <!-- ✅ le faltaba reveal -->
+      <article class="mv-card alt reveal">
+        <div class="mv-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+        </div>
+
+        <h3 class="mv-card-title">Nuestra visión</h3>
+        <p class="mv-card-text">
+          Ser un referente en formación con propósito, conectando personas con oportunidades
+          y promoviendo autonomía, empoderamiento y desarrollo sostenible.
+        </p>
+
+        <div class="mv-quote">
+          <span class="mv-quote-bar"></span>
+          <p>Educar es transformar: conectar el saber con el hacer.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     NUESTRO EQUIPO
+========================= -->
+<section class="team-section">
+  <div class="container">
+
+    <div class="team-header reveal">
+      <span class="team-subtitle">PROFESIONALES QUE TE LLEVARÁN A OTRO NIVEL</span>
+      <h2 class="team-title">Nuestro equipo</h2>
+
+      <p class="team-quote">
+        “La educación es el arma más poderosa que puedes usar para cambiar el mundo”
+        <span>(Nelson Mandela)</span>
+      </p>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- Miriam -->
+      <article class="team-card reveal">
+        <img src="{% static 'img/equipo/miriam.png' %}" alt="Miriam Cáceres">
+
+        <div class="team-name-wrap">
+          <h3 class="team-name">Miriam<br>Cáceres</h3>
+        </div>
+
+        <div class="team-overlay" aria-hidden="true">
+          <div class="team-overlay-inner">
+            <h3 class="team-name team-name--overlay">Miriam<br>Cáceres</h3>
+            <p class="team-role">DIRECTORA</p>
+            <p class="team-desc">
+              Especialista en negocios de moda con impacto Social | Diseñadora & Modelista 
+              | Coach | Charlista | Content Creator and Influencer | Marketing
+            </p>
+            <a class="team-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ivisa -->
+      <article class="team-card reveal">
+        <img src="{% static 'img/equipo/ivisa.png' %}" alt="Ivisa Rubio">
+
+        <div class="team-name-wrap">
+          <h3 class="team-name">Ivisa<br>Rubio</h3>
+        </div>
+
+        <div class="team-overlay" aria-hidden="true">
+          <div class="team-overlay-inner">
+            <h3 class="team-name team-name--overlay">Ivisa<br>Rubio</h3>
+            <p class="team-role">JEFA DE PROYECTO</p>
+            <p class="team-desc">
+              Cientista Política | Proyectos de impacto social Género | Sostenibilidad 
+              | Desarrollo Contenidos con propósito 
+              | comunicaciones con perspectiva de género | Design Thinking
+            </p>
+            <a class="team-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Daniela -->
+      <article class="team-card reveal">
+        <img src="{% static 'img/equipo/daniela.png' %}" alt="Daniela Irribarra">
+
+        <div class="team-name-wrap">
+          <h3 class="team-name">Daniela<br>Irribarra</h3>
+        </div>
+
+        <div class="team-overlay" aria-hidden="true">
+          <div class="team-overlay-inner">
+            <h3 class="team-name team-name--overlay">Daniela<br>Irribarra</h3>
+            <p class="team-role">RECURSOS HUMANOS</p>
+            <p class="team-desc">
+              Psicologa laboral | Coach especializada en Mind Fulness
+            </p>
+            <a class="team-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     CIFRAS / IMPACTO (CONTADOR)
+========================= -->
+<section class="stats-section" id="stats">
+  <div class="stats-overlay"></div>
+
+  <div class="container stats-grid reveal">
+
+    <div class="stat-item">
+      <span class="stat-number"
+            data-prefix="+"
+            data-target="20">+0</span>
+      <span class="stat-label">Años de experiencia</span>
+    </div>
+
+    <div class="stat-item">
+      <span class="stat-number"
+            data-prefix="+"
+            data-target="10">+0</span>
+      <span class="stat-label">Cursos especializados</span>
+    </div>
+
+    <div class="stat-item">
+      <span class="stat-number"
+            data-prefix="+"
+            data-target="2000"
+            data-sep=".">+0</span>
+      <span class="stat-label">Profesionales capacitados</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     TESTIMONIOS (CARRUSEL)
+========================= -->
+<section class="testimonials" id="testimonios">
+  <div class="container">
+
+    <div class="testi-head reveal">
+      <span class="testi-subtitle">Testimonios inspiradores de nuestros alumnos</span>
+      <h2 class="testi-title">¡Experiencias de<br>éxito!</h2>
+    </div>
+
+    <div class="testi-slider reveal" data-slider="testi">
+      <button class="testi-nav prev" type="button" aria-label="Anterior" data-prev>‹</button>
+
+      <div class="testi-viewport">
+        <div class="testi-track">
+
+          <!-- SLIDE 1 -->
+          <article class="testi-slide">
+            <p class="testi-text">
+              Hola, mi nombre es Dinarda Carcés, soy alumna de la primera generación del curso Modelista Industrial que está impartiendo la OTEC Nova Mentes, 
+              dirigido por la profesora Miriam Cáceres. Decidí tomar este curso y creer en este proyecto porque conozco hace años a la profesora Miriam y 
+              la calidad de profesional que ella es, y también por un anhelo personal, para poder certificarme como Modelista Industrial y hacer crecer mi marca.
+
+              Antes de conocer a Nova Mentes y a nuestra profesora, no sabía nada de moldes y, después de casi dos años y medio tomando cursos con ella e 
+              integrarme en este curso de Modelista Industrial, entrego trabajos y productos con seguridad. Soy una agradecida de la vida y de Dios por 
+              haberme encontrado en el camino a Nova Mentes, porque es una OTEC que entrega un aprendizaje 100% confiable y gracias a ellas hoy puedo 
+              decir que también he crecido junto a ellas.
+
+              Si tú, al igual que yo, quieres aprender de molde y confección, te invito a conocer la OTEC Nova Mentes. ¡No te arrepentirás!
+            </p>
+
+            <div class="testi-person">
+              <img class="testi-avatar" src="{% static 'img/avatar.jpg' %}" alt="Dinarda Garcés">
+              <div>
+                <div class="testi-name">Dinarda Garcés</div>
+                <div class="testi-role">Emprendedora</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 2 (duplica para más) -->
+          <article class="testi-slide">
+            <p class="testi-text">
+              Soy alumna de Modelista Industrial con la profesora Miriam Cáceres. Ya vamos a mitad de año y no se imaginan todo lo que uno puede aprender 
+              con ella. He aprendido muchísimo; no sabía nada de moldes y ahora puedo realizar una prenda, porque ella entrega todo el conocimiento.
+
+              Es una profesora profesional, cercana y súper clara para enseñar; no se guarda nada, ningún secreto ni tips, ella te lo entrega todo. Por eso 
+              sigo confiando en ella: he tomado algunos cursos anteriormente y me atreví a seguir formándome con ella, porque la calidad de profesora que es 
+              realmente marca la diferencia.
+
+              Todo esto te abre nuevas oportunidades de trabajo y conocimiento.
+              ¡Nova Mentes 100% recomendable!
+            </p>
+            <div class="testi-person">
+              <img class="testi-avatar" src="{% static 'img/avatar.jpg' %}" alt="Nombre Apellido">
+              <div>
+                <div class="testi-name">Martiza</div>
+                <div class="testi-role">Alumna</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 3 (duplica para más) -->
+          <article class="testi-slide">
+            <p class="testi-text">
+              Desde un principio confié ciegamente en la profe Miriam Cáceres, 
+              la investigué por sus redes sociales y me pareció encantadora, mi 
+              experiencia con ella fue primero con el curso de falso de cueca premium y 
+              luego el curso de cueca. Quedé maravillada por su dedicación, entrega, 
+              disciplina y paciencia. Lo que más me gustó es haber aprendido a hacer 
+              moldes de confección paso a paso y sus tips de costura, de proveedores, 
+              enseñanza y consejos que la profe nos da. Lo más importante descubrí con 
+              ella que atreverse no cuesta nada, ser útil y creer en tus capacidades, hay que 
+              perder los miedos.
+
+              ¡Se puede!
+            </p>
+            <div class="testi-person">
+              <img class="testi-avatar" src="{% static 'img/avatar.jpg' %}" alt="Nombre Apellido">
+              <div>
+                <div class="testi-name">Patricia Espinoza</div>
+                <div class="testi-role">Emprendedora</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 4 (duplica para más) -->
+          <article class="testi-slide">
+            <p class="testi-text">
+              Hola mi nombre es Dinarda Carcés, soy alumna de la primera generación 
+              del curso Modelista Industrial que está impartiendo la OTEC Nova Mentes 
+              dirigido por la profesora Miriam Cáceres, decidí tomar este curso y creer 
+              en este proyecto porque conozco hace años a la profesora Miriam y sé la 
+              calidad de profesional que ella es y también por un anhelo personal, para 
+              poder certificarme como Modelista Industrial y hacer crecer mi marca. Antes 
+              de conocer a Nova Mentes y conocer a nuestra profesora, yo no sabía nada de 
+              moldes y después de casi dos años y medio tomando cursos con ella e integrarme 
+              en este curso de Modelista Industrial entrego trabajos y productos con seguridad. 
+              Soy una agradecida de la vida y de Dios por haberme encontrado en el camino a 
+              Nova Mentes, porque es una OTEC que entrega un aprendizaje 100% confiable y 
+              gracias a ellas yo actualmente puedo decir que también he crecido junto a 
+              ellas. Si tú al igual que yo quieres aprender de molde y confección, te invito 
+              a conocer la OTEC Nova Mentes. ¡No te arrepentirás!
+            </p>
+            <div class="testi-person">
+              <img class="testi-avatar" src="{% static 'img/avatar.jpg' %}" alt="Nombre Apellido">
+              <div>
+                <div class="testi-name">Dinarda Garcés</div>
+                <div class="testi-role">Emprendedora</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 5 (duplica para más) -->
+          <article class="testi-slide">
+            <p class="testi-text">
+              Desde muy pequeña me gustó la costura y las manualidades. Conocí a la 
+              profe Miriam a través de un video de TikTok que me compartió mi marido. 
+              Él fue el que me ha incentivado a tomar los cursos que la profe da. El 
+              primer curso que tomé fue el de Trajes Típicos. Aprendí muchos moldes que 
+              no solamente me sirvieron para trajes típicos, sino para muchas otras cosas. 
+              También me inscribí en lencería y hoy comencé el de modelista industrial. La 
+              profe nos enseña los moldes, aparte de eso nos entrega tips y consejos de 
+              superación personal. También nos ayuda con consejos para sacar a flote 
+              uestro negocio. Nos entrega los datos de las telas, de dónde conseguir 
+              nuestros insumos. Yo puedo dar fe de que hoy en día ya no volveré a comprar 
+              un molde, porque gracias a todo lo que me enseña la profe, puedo crear mi 
+              propio molde. Así que eso, seguir aprendiendo más en todo lo que es los 
+              moldes, la costura, las prendas, las telas.
+            </p>
+            <div class="testi-person">
+              <img class="testi-avatar" src="{% static 'img/avatar.jpg' %}" alt="Nombre Apellido">
+              <div>
+                <div class="testi-name">Eva Sepulveda</div>
+                <div class="testi-role">Emprendedora</div>
+              </div>
+            </div>
+          </article>
+
+
+        </div>
+      </div>
+
+      <button class="testi-nav next" type="button" aria-label="Siguiente" data-next>›</button>
+
+      <div class="testi-dots" data-dots></div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".stat-number");
+  if (!counters.length) return;
+
+  const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const formatNumber = (n, sep) => {
+    const s = Math.round(n).toString();
+    if (!sep) return s;
+    return s.replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+  };
+
+  const animateCounter = (el) => {
+    const target = parseInt(el.dataset.target || "0", 10);
+    const prefix = el.dataset.prefix || "";
+    const sep = el.dataset.sep || "";
+
+    if (prefersReduce) {
+      el.textContent = prefix + formatNumber(target, sep);
+      return;
+    }
+
+    const duration = 1200; // ms
+    const start = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      // easeOutCubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = target * eased;
+
+      el.textContent = prefix + formatNumber(value, sep);
+
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+  };
+
+  // Observa la sección para disparar una vez
+  const statsSection = document.querySelector("#stats");
+  if (!statsSection) return;
+
+  let started = false;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        counters.forEach(animateCounter);
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.25 });
+
+  io.observe(statsSection);
+});
+</script>
+
+
+
+<!-- ✅ JS para animación por scroll -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".reveal");
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    items.forEach(el => el.classList.add("is-in"));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-in");
+        io.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -10% 0px"
+  });
+
+  items.forEach(el => io.observe(el));
+});
+</script>
+
+{% endblock %}

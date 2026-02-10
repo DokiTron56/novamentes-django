@@ -1,0 +1,144 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TÍTULO DE LA PESTAÑA -->
+  <title>{% block title %}NovaMentes{% endblock %}</title>
+
+  <!-- FAVICON (imagen de la pestaña) -->
+  <link rel="icon" type="image/x-icon" href="{% static 'img/logos/ÍCONO NM.png' %}?v=1">
+
+  <!-- CSS BASE -->
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+  {% block extra_css %}{% endblock %}
+</head>
+
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-row">
+
+      <!-- Logo -->
+      <a class="brand" href="{% url 'home' %}">
+        <img class="brand-logo" src="{% static 'img/logos/LOGOTIPO NM.png' %}" alt="Novamentes">
+      </a>
+
+      <!-- Menú centrado -->
+      <nav class="nav">
+        <a
+          class="nav-link {% if request.resolver_match.url_name == 'home' %}nav-active{% endif %}"
+          href="{% url 'home' %}"
+          {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}
+        >Inicio</a>
+
+        <a
+          class="nav-link {% if request.resolver_match.url_name == 'nosotros' %}nav-active{% endif %}"
+          href="{% url 'nosotros' %}"
+          {% if request.resolver_match.url_name == 'nosotros' %}aria-current="page"{% endif %}
+        >Sobre Nosotros</a>
+
+        <a
+          class="nav-link {% if request.resolver_match.url_name == 'cursos' %}nav-active{% endif %}"
+          href="{% url 'cursos' %}"
+          {% if request.resolver_match.url_name == 'cursos' %}aria-current="page"{% endif %}
+        >Cursos</a>
+
+        <a
+          class="nav-link {% if request.resolver_match.url_name == 'blog' %}nav-active{% endif %}"
+          href="{% url 'blog' %}"
+          {% if request.resolver_match.url_name == 'blog' %}aria-current="page"{% endif %}
+        >Novedades</a>
+
+        <a
+          class="nav-link {% if request.resolver_match.url_name == 'contacto' %}nav-active{% endif %}"
+          href="{% url 'contacto' %}"
+          {% if request.resolver_match.url_name == 'contacto' %}aria-current="page"{% endif %}
+        >Contáctanos</a>
+      </nav>
+
+      <!-- Botón derecha -->
+      <a class="btn btn-pill btn-virtual" href="https://novamentes.cl/aulavirtual" target="_blank" rel="noopener">
+        Aula Virtual
+      </a>
+
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+
+    <a class="footer-brand" href="{% url 'home' %}">
+      <img class="footer-logo" src="{% static 'img/logo-novamentes.png' %}" alt="Novamentes">
+    </a>
+
+    <div class="footer-info">
+      <div class="footer-item">
+        <span class="footer-label">Ubicación</span>
+        <a class="footer-link" href="https://www.google.com/maps/place/P.%C2%BA+Mat%C3%ADas+Cousi%C3%B1o+82,+8320269+Santiago,+Regi%C3%B3n+Metropolitana/@-33.4420691,-70.6523106,17z/data=!3m1!4b1!4m6!3m5!1s0x9662c5a13d88cf03:0xea166cc557164e3a!8m2!3d-33.4420736!4d-70.6497357!16s%2Fg%2F11g98xc310?entry=ttu&g_ep=EgoyMDI2MDIwMy4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D" target="_blank">
+          Paseo Matias Cousiño 82, 1007
+        </a>
+      </div>
+
+      <div class="footer-item">
+        <span class="footer-label">Correo</span>
+        <a class="footer-link" href="mailto:contacto@novamentes.cl">
+          contacto@novamentes.cl
+        </a>
+      </div>
+
+      <div class="footer-item">
+        <span class="footer-label">Horario</span>
+        <span class="footer-text">Lunes a Viernes · 10:00 – 14:00</span>
+      </div>
+    </div>
+
+    <div class="footer-socials">
+      <a class="social-pill" href="https://www.instagram.com/novamentescl" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="{% static 'img/redes/ig.png' %}" alt="Ig">
+      </a>
+
+      <a class="social-pill" href="https://www.facebook.com/novamentes" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="{% static 'img/redes/face.png' %}" alt="Face">
+      </a>
+
+      <a class="social-pill" href="https://www.tiktok.com/@novamentes.ic" target="_blank" rel="noopener" aria-label="TikTok">
+        <img src="{% static 'img/redes/tt.png' %}" alt="TT">
+      </a>
+
+      <a class="social-pill" href="https://cl.linkedin.com/company/nova-mentes?trk=public_post_follow-view-profile" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img src="{% static 'img/redes/lik.png' %}" alt="TT">
+      </a>
+    </div>
+
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© {% now "Y" %} Novamentes · Todos los derechos reservados</p>
+  </div>
+</footer>
+
+
+<!-- Botón flotante WhatsApp -->
+<a href="https://wa.me/56987768377"
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener"
+   aria-label="WhatsApp Novamentes">
+  <img src="{% static 'img/redes/wsp.png' %}" alt="WhatsApp">
+</a>
+
+<script src="{% static 'js/testimonios.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>
